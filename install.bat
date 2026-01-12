@@ -1,51 +1,50 @@
 @echo off
-chcp 65001 > nul
 echo ========================================
-echo  부동산 투자 분석 도구 설치
+echo  �ε��� ���� �м� ���� ��ġ
 echo ========================================
 echo.
 
-REM Node.js 설치 확인
-echo [1/3] Node.js 확인 중...
+REM Node.js ��ġ Ȯ��
+echo [1/3] Node.js Ȯ�� ��...
 where node >nul 2>nul
 if %ERRORLEVEL% NEQ 0 (
-    echo ❌ Node.js가 설치되어 있지 않습니다.
+    echo Node.js�� ��ġ�Ǿ� ���� �ʽ��ϴ�.
     echo.
-    echo Node.js를 설치해주세요: https://nodejs.org/
-    echo LTS 버전을 권장합니다.
+    echo Node.js�� ��ġ���ּ���: https://nodejs.org/
+    echo LTS ������ �����մϴ�.
     pause
     exit /b 1
 )
 node --version
-echo ✅ Node.js 설치 확인
+echo Node.js ��ġ Ȯ��
 echo.
 
-REM npm 설치 확인
-echo [2/3] npm 확인 중...
+REM npm ��ġ Ȯ��
+echo [2/3] npm Ȯ�� ��...
 where npm >nul 2>nul
 if %ERRORLEVEL% NEQ 0 (
-    echo ❌ npm이 설치되어 있지 않습니다.
+    echo npm�� ��ġ�Ǿ� ���� �ʽ��ϴ�.
     pause
     exit /b 1
 )
 npm --version
-echo ✅ npm 설치 확인
+echo npm ��ġ Ȯ��
 echo.
 
-REM 의존성 설치
-echo [3/3] 필요한 패키지 설치 중...
+REM ������ ��ġ
+echo [3/3] �ʿ��� ��Ű�� ��ġ ��...
 call npm install
 if %ERRORLEVEL% NEQ 0 (
-    echo ❌ 패키지 설치 실패
+    echo ��Ű�� ��ġ ����
     pause
     exit /b 1
 )
 
 echo.
 echo ========================================
-echo ✅ 설치 완료!
+echo ��ġ �Ϸ�\!
 echo ========================================
 echo.
-echo 이제 start.bat를 실행하여 서버를 시작하세요.
+echo ���� start.bat�� �����Ͽ� ������ �����ϼ���.
 echo.
 pause

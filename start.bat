@@ -1,28 +1,27 @@
 @echo off
-chcp 65001 > nul
 echo ========================================
-echo  ë¶€ë™ì‚° íˆ¬ìž ë¶„ì„ ë„êµ¬ ì‹œìž‘
+echo  ºÎµ¿»ê ÅõÀÚ ºÐ¼® µµ±¸ ½ÃÀÛ
 echo ========================================
 echo.
 
-REM node_modules í™•ì¸
+REM node_modules È®ÀÎ
 if not exist "node_modules" (
-    echo âŒ íŒ¨í‚¤ì§€ê°€ ì„¤ì¹˜ë˜ì–´ ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.
+    echo ÆÐÅ°Áö°¡ ¼³Ä¡µÇ¾î ÀÖÁö ¾Ê½À´Ï´Ù.
     echo.
-    echo install.batë¥¼ ë¨¼ì € ì‹¤í–‰í•´ì£¼ì„¸ìš”.
+    echo install.bat¸¦ ¸ÕÀú ½ÇÇàÇØÁÖ¼¼¿ä.
     echo.
     pause
     exit /b 1
 )
 
-echo ðŸš€ ì„œë²„ë¥¼ ì‹œìž‘í•©ë‹ˆë‹¤...
+echo ¼­¹ö¸¦ ½ÃÀÛÇÕ´Ï´Ù...
 echo.
-echo ì„œë²„ê°€ ì‹œìž‘ë˜ë©´ ë¸Œë¼ìš°ì €ê°€ ìžë™ìœ¼ë¡œ ì—´ë¦½ë‹ˆë‹¤.
-echo ì¢…ë£Œí•˜ë ¤ë©´ Ctrl+Cë¥¼ ëˆ„ë¥´ì„¸ìš”.
+echo ¼­¹ö°¡ ½ÃÀÛµÇ¸é ºê¶ó¿ìÀú°¡ ÀÚµ¿À¸·Î ¿­¸³´Ï´Ù.
+echo Á¾·áÇÏ·Á¸é Ctrl+C¸¦ ´©¸£¼¼¿ä.
 echo.
 
-REM 3ì´ˆ í›„ ë¸Œë¼ìš°ì € ìžë™ ì‹¤í–‰
-start /B timeout /t 3 /nobreak >nul && start http://localhost:3000
+REM 3ÃÊ ÈÄ ºê¶ó¿ìÀú ÀÚµ¿ ½ÇÇà
+start /B timeout /t 3 /nobreak >nul ^&^& start http://localhost:3000
 
-REM ì„œë²„ ì‹œìž‘
+REM ¼­¹ö ½ÃÀÛ
 call npm start
