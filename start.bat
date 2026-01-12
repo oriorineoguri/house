@@ -16,12 +16,9 @@ if not exist "node_modules" (
 
 echo 서버를 시작합니다...
 echo.
-echo 서버가 시작되면 브라우저가 자동으로 열립니다.
+echo 브라우저에서 http://localhost:3000 을 열어주세요.
 echo 종료하려면 Ctrl+C를 누르세요.
 echo.
-
-REM 3초 후 브라우저 자동 실행
-start /B timeout /t 3 /nobreak >nul ^&^& start http://localhost:3000
 
 REM 서버 시작
 call npm start
