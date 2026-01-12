@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>부동산 투자 분석 대시보드</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <h1>🏢 부동산 투자 분석</h1>
+        <p class="tagline">데이터 기반 투자 의사결정</p>
+      </div>
+      <nav class="nav">
+        <button class="btn-secondary" id="btnSettings">설정</button>
+      </nav>
+    </header>
+
+    <!-- Input Section -->
+    <section class="input-section">
+      <div class="card input-card">
+        <h2>투자 정보 입력</h2>
+        <form id="investmentForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="budget">예산 (만원)</label>
+              <input type="number" id="budget" name="budget" placeholder="예: 100000" required>
+              <small style="color: #999; font-size: 0.85rem;">투자 가능한 금액을 입력하세요</small>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="myWorkplace">나의 직장 위치</label>
+              <input type="text" id="myWorkplace" name="myWorkplace" placeholder="예: 강남구, 서초구, 판교" required>
+              <small style="color: #999; font-size: 0.85rem;">출퇴근하는 지역을 입력하세요</small>
+            </div>
+            <div class="form-group">
+              <label for="spouseWorkplace">배우자 직장 위치 (선택)</label>
+              <input type="text" id="spouseWorkplace" name="spouseWorkplace" placeholder="예: 여의도, 마곡">
+              <small style="color: #999; font-size: 0.85rem;">선택 사항입니다</small>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btnAnalyze">
+            <span class="btn-text">추천 단지 찾기</span>
+            <span class="btn-icon">🔍</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Loading State -->
+    <div class="loading-state" id="loadingState" style="display: none;">
+      <div class="spinner"></div>
+      <p>최적의 투자 단지를 찾는 중...</p>
+      <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">7가지 기준으로 분석 중</p>
+    </div>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection" style="display: none;">
+      <!-- JavaScript로 동적 생성됨 -->
+    </section>
+
+    <!-- 더미 섹션 제거됨: 이전에는 하드코딩된 예시 데이터가 있었으나 삭제함 -->
+    <section style="display: none;">
+      <div class="card score-card">
+        <div class="score-header">
+          <h2>종합 점수</h2>
+          <div class="score-badge" id="scoreRating">⭐⭐⭐</div>
+        </div>
+        <div class="score-display">
+          <div class="score-circle">
+            <svg viewBox="0 0 200 200">
+              <circle cx="100" cy="100" r="90" class="score-bg"></circle>
+              <circle cx="100" cy="100" r="90" class="score-fill" id="scoreCircle"></circle>
+            </svg>
+            <div class="score-value">
+              <span class="score-number" id="totalScore">82</span>
+              <span class="score-max">/100</span>
+            </div>
+          </div>
+          <div class="score-verdict">
+            <h3 id="verdictText">강력 추천</h3>
+            <p id="verdictDesc">투자 가치 매우 높음</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detailed Analysis -->
+      <div class="analysis-grid">
+        <div class="card analysis-card">
+          <div class="analysis-icon">📍</div>
+          <h3>입지의 희소성</h3>
+          <div class="score-bar">
+            <div class="score-bar-fill" style="width: 85%"></div>
+          </div>
+          <p class="score-text">85/100</p>
+          <p class="analysis-detail">강남 핵심 + GTX 호재로 입지 우수</p>
+        </div>
+
+        <div class="card analysis-card">
+          <div class="analysis-icon">🏗️</div>
+          <h3>단지 규모와 브랜드</h3>
+          <div class="score-bar">
+            <div class="score-bar-fill" style="width: 95%"></div>
+          </div>
+          <p class="score-text">95/100</p>
+          <p class="analysis-detail">대단지 + 1군 브랜드로 환금성 우수</p>
+        </div>
+
+        <div class="card analysis-card">
+          <div class="analysis-icon">📊</div>
+          <h3>공급과 수요</h3>
+          <div class="score-bar">
+            <div class="score-bar-fill" style="width: 75%"></div>
+          </div>
+          <p class="score-text">75/100</p>
+          <p class="analysis-detail">입주 물량 보통, 수요는 탄탄</p>
+        </div>
+
+        <div class="card analysis-card">
+          <div class="analysis-icon">🎓</div>
+          <h3>학군</h3>
+          <div class="score-bar">
+            <div class="score-bar-fill" style="width: 88%"></div>
+          </div>
+          <p class="score-text">88/100</p>
+          <p class="analysis-detail">초품아 + 8학군 + 학원가 인접</p>
+        </div>
+
+        <div class="card analysis-card">
+          <div class="analysis-icon">🏠</div>
+          <h3>상품성</h3>
+          <div class="score-bar">
+            <div class="score-bar-fill" style="width: 90%"></div>
+          </div>
+          <p class="score-text">90/100</p>
+          <p class="analysis-detail">준신축으로 시설 최신</p>
+        </div>
+
+        <div class="card analysis-card">
+          <div class="analysis-icon">📈</div>
+          <h3>시장 신호</h3>
+          <div class="score-bar">
+            <div class="score-bar-fill" style="width: 78%"></div>
+          </div>
+          <p class="score-text">78/100</p>
+          <p class="analysis-detail">전세가율 76%, 안정적 시장</p>
+        </div>
+      </div>
+
+      <!-- Pros & Cons -->
+      <div class="pros-cons-section">
+        <div class="card pros-card">
+          <h3>✅ 장점</h3>
+          <ul id="prosList">
+            <li>입지 우수: 강남 핵심 + GTX 호재</li>
+            <li>학군 최상: 초품아 + 8학군</li>
+            <li>대단지 1군 브랜드: 환금성 우수</li>
+            <li>준신축: 시설 최신</li>
+          </ul>
+        </div>
+        <div class="card cons-card">
+          <h3>⚠️ 단점</h3>
+          <ul id="consList">
+            <li>입주 물량: 향후 3년 경쟁 심화 가능</li>
+            <li>가격 부담: 고가 자산</li>
+            <li>거래량 보합: 단기 차익 어려움</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Investment Opinion -->
+      <div class="card opinion-card">
+        <h3>💡 투자 의견</h3>
+        <div class="opinion-content" id="opinionContent">
+          <p>이 단지는 <strong>강남 핵심 입지</strong> + <strong>초품아 8학군</strong> + <strong>대단지 1군 브랜드</strong>의 3박자를 모두 갖춘 우량 자산입니다.</p>
+          <p>중장기 보유(5년+) 전략을 권장하며, 전세가율 76%는 적정 수준입니다.</p>
+        </div>
+      </div>
+
+      <!-- Warning -->
+      <div class="warning-box">
+        <p>⚠️ 이 분석은 학습용 시뮬레이션입니다. 실제 투자 결정은 반드시 전문가 상담 후 진행하세요.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/businessDistricts.js"></script>
+  <script src="js/recommendation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

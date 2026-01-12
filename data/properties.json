@@ -1,0 +1,199 @@
+{
+  "properties": [
+    {
+      "id": 1,
+      "name": "래미안 강남포레스트",
+      "address": "서울시 강남구 개포동 123",
+      "price": 158000,
+      "households": 1200,
+      "buildYear": 2020,
+      "brand": "래미안",
+      "location": {
+        "district": "강남구",
+        "nearbyStation": "대치역",
+        "stationDistance": 400,
+        "commuteTimeGangnam": 15,
+        "commuteTim ePangyo": 40
+      },
+      "education": {
+        "hasElementarySchool": true,
+        "schoolDistrict": 8,
+        "nearAcademyDistrict": true
+      },
+      "market": {
+        "jeonsePrice": 120000,
+        "jeonseRatio": 75.9,
+        "transactionTrend": "stable"
+      },
+      "supply": {
+        "futureSupply": 1500,
+        "unsold": 0
+      },
+      "scores": {
+        "location": 85,
+        "brand": 95,
+        "supply": 75,
+        "education": 88,
+        "age": 90,
+        "market": 78,
+        "total": 82
+      }
+    },
+    {
+      "id": 2,
+      "name": "힐스테이트 판교",
+      "address": "경기도 성남시 분당구 판교동 456",
+      "price": 135000,
+      "households": 800,
+      "buildYear": 2019,
+      "brand": "힐스테이트",
+      "location": {
+        "district": "분당구",
+        "nearbyStation": "판교역",
+        "stationDistance": 200,
+        "commuteTimeGangnam": 40,
+        "commuteTimePangyo": 5
+      },
+      "education": {
+        "hasElementarySchool": false,
+        "schoolDistrict": 6,
+        "nearAcademyDistrict": true
+      },
+      "market": {
+        "jeonsePrice": 95000,
+        "jeonseRatio": 70.4,
+        "transactionTrend": "increasing"
+      },
+      "supply": {
+        "futureSupply": 2500,
+        "unsold": 50
+      },
+      "scores": {
+        "location": 78,
+        "brand": 85,
+        "supply": 70,
+        "education": 72,
+        "age": 88,
+        "market": 85,
+        "total": 77
+      }
+    },
+    {
+      "id": 3,
+      "name": "자이 마곡엠밸리",
+      "address": "서울시 강서구 마곡동 789",
+      "price": 98000,
+      "households": 1500,
+      "buildYear": 2021,
+      "brand": "자이",
+      "location": {
+        "district": "강서구",
+        "nearbyStation": "마곡나루역",
+        "stationDistance": 300,
+        "commuteTimeGangnam": 50,
+        "commuteTimePangyo": 60
+      },
+      "education": {
+        "hasElementarySchool": true,
+        "schoolDistrict": 5,
+        "nearAcademyDistrict": false
+      },
+      "market": {
+        "jeonsePrice": 68000,
+        "jeonseRatio": 69.4,
+        "transactionTrend": "stable"
+      },
+      "supply": {
+        "futureSupply": 800,
+        "unsold": 0
+      },
+      "scores": {
+        "location": 72,
+        "brand": 92,
+        "supply": 85,
+        "education": 65,
+        "age": 92,
+        "market": 75,
+        "total": 76
+      }
+    },
+    {
+      "id": 4,
+      "name": "푸르지오 위례",
+      "address": "경기도 성남시 수정구 창곡동 321",
+      "price": 82000,
+      "households": 600,
+      "buildYear": 2018,
+      "brand": "푸르지오",
+      "location": {
+        "district": "성남시",
+        "nearbyStation": "위례역",
+        "stationDistance": 500,
+        "commuteTimeGangnam": 35,
+        "commuteTimePangyo": 30
+      },
+      "education": {
+        "hasElementarySchool": true,
+        "schoolDistrict": 7,
+        "nearAcademyDistrict": true
+      },
+      "market": {
+        "jeonsePrice": 58000,
+        "jeonseRatio": 70.7,
+        "transactionTrend": "stable"
+      },
+      "supply": {
+        "futureSupply": 3000,
+        "unsold": 120
+      },
+      "scores": {
+        "location": 75,
+        "brand": 80,
+        "supply": 62,
+        "education": 78,
+        "age": 82,
+        "market": 74,
+        "total": 73
+      }
+    },
+    {
+      "id": 5,
+      "name": "아이파크 송도",
+      "address": "인천시 연수구 송도동 654",
+      "price": 72000,
+      "households": 2000,
+      "buildYear": 2017,
+      "brand": "아이파크",
+      "location": {
+        "district": "연수구",
+        "nearbyStation": "센트럴파크역",
+        "stationDistance": 350,
+        "commuteTimeGangnam": 70,
+        "commuteTimePangyo": 65
+      },
+      "education": {
+        "hasElementarySchool": true,
+        "schoolDistrict": 6,
+        "nearAcademyDistrict": true
+      },
+      "market": {
+        "jeonsePrice": 48000,
+        "jeonseRatio": 66.7,
+        "transactionTrend": "stable"
+      },
+      "supply": {
+        "futureSupply": 5000,
+        "unsold": 350
+      },
+      "scores": {
+        "location": 58,
+        "brand": 88,
+        "supply": 48,
+        "education": 70,
+        "age": 78,
+        "market": 68,
+        "total": 65
+      }
+    }
+  ]
+}
