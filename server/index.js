@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:8000',
+    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
     methods: ['GET', 'POST'],
     credentials: true
 }));
@@ -30,19 +30,11 @@ app.use((req, res, next) => {
     next();
 });
 
-// Routes
-app.get('/', (req, res) => {
-    res.json({
-        message: '부동산 투자 분석 API 서버',
-        version: '1.0.0',
-        endpoints: {
-            property: '/api/property',
-            transaction: '/api/transaction'
-        }
-    });
-});
-
+// API Routes
 app.use('/api/property', propertyRoutes);
+
+// 정적 파일 서빙 (프로젝트 루트 디렉토리)
+app.use(express.static(path.join(__dirname, '..')));
 
 // 에러 핸들링 미들웨어
 app.use((err, req, res, next) => {
@@ -63,11 +55,12 @@ app.use((req, res) => {
 // 서버 시작
 app.listen(PORT, () => {
     console.log(`========================================`);
-    console.log(`🏢 부동산 투자 분석 API 서버 시작`);
+    console.log(`🏢 부동산 투자 분석 서버 시작`);
     console.log(`========================================`);
     console.log(`포트: ${PORT}`);
     console.log(`환경: ${process.env.NODE_ENV || 'development'}`);
-    console.log(`CORS 허용: ${process.env.CORS_ORIGIN || 'http://localhost:8000'}`);
+    console.log(`웹 접속: http://localhost:${PORT}`);
+    console.log(`API: http://localhost:${PORT}/api/property`);
     console.log(`========================================`);
 });
 

@@ -4,7 +4,8 @@
 
 'use strict';
 
-const API_BASE_URL = 'http://localhost:3000/api';
+// 상대 경로 사용 (같은 서버에서 정적 파일과 API를 함께 제공)
+const API_BASE_URL = '/api';
 
 /**
  * API 요청 헬퍼
@@ -14,14 +15,16 @@ const API_BASE_URL = 'http://localhost:3000/api';
  */
 async function apiRequest(endpoint, params = {}) {
     try {
-        const url = new URL(`${API_BASE_URL}${endpoint}`);
-
-        // 쿼리 파라미터 추가
+        // 쿼리 파라미터 생성
+        const queryParams = new URLSearchParams();
         Object.keys(params).forEach(key => {
             if (params[key] !== null && params[key] !== undefined) {
-                url.searchParams.append(key, params[key]);
+                queryParams.append(key, params[key]);
             }
         });
+
+        const queryString = queryParams.toString();
+        const url = `${API_BASE_URL}${endpoint}${queryString ? '?' + queryString : ''}`;
 
         console.log(`API 요청: ${url}`);
 
